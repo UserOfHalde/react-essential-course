@@ -62,7 +62,21 @@
                 var searchQuery = event.target.value.toLowerCase();
                 var displayedContacts = CONTACTS.filter(function(el) {
                     var searchValue = el.name.toLowerCase();
-                    return searchValue.indexOf(searchQuery) !== -1;
+                  console.log(el.id  + " searchValue");
+                  let empty = " eine Zahl";
+                  if(searchQuery === "")
+                  {
+                    empty = " der String is empty";
+                    console.log(  typeof(searchQuery)+ " searchQuery is empty ");
+                  }  ;
+
+                  console.log("was gibt indexOf zurück:\n " + (searchValue.indexOf(searchQuery) !== -1) + "\n" +
+                   "Typ von searchQuery ist " + typeof(searchQuery) + "\n" + "was steckt in searchquery  \n" +
+                         ( isNaN(searchQuery)? typeof(searchQuery)+( " hier ist keine Zahl "
+                          +
+                             "indexOf searchQuery is " + searchValue.indexOf(searchQuery)): (Number(searchQuery) + empty + " \n " +
+                             "indexOf searchQuery is " + searchValue.indexOf(searchQuery))) );
+                  return searchValue.indexOf(searchQuery) !== -1;
                 });
 
                 this.setState({
